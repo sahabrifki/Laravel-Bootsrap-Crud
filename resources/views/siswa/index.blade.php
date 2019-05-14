@@ -33,6 +33,7 @@
                 
                         <tr>
                             <th>#</th>
+                            <th>ID</th>
                             <th>NAMA DEPAN</th>
                             <th>NAMA BELAKANG</th>
                             <th>JENIS KELAMIN</th>
@@ -47,6 +48,7 @@
                         
                         <tr>
                             <td>{{$row}}</td>
+                            <td>{{$siswa->id}}</td>
                             <td>{{$siswa->nama_depan}}</td>
                             <td>{{$siswa->nama_belakang}}</td>
                             <td>{{$siswa->jenis_kelamin}}</td>
@@ -75,7 +77,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
 
 <!--Form-->
       <form action="/siswa/create" method="POST">
