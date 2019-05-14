@@ -19,7 +19,7 @@
         @endif
 
     <!--Form-->
-    <form action="/siswa/{{$siswa->id}}/edit" method="POST">
+    <form action="/siswa/{{$siswa->id}}/update" method="POST">
         {{csrf_field()}}
 
           <div class="form-group">
@@ -36,7 +36,7 @@
               <label for="exampleFormControlSelect1">Jenis kelamin</label>
               <select name="jenis_kelamin" class="form-control" id="exampleFormControlSelect1">
                 <option value="L" @if($siswa == 'L') selected @endif >Laki-Laki</option>
-                <option value="2" @if($siswa == 'P') selected @endif >Perempuan</option>
+                <option value="P" @if($siswa == 'P') selected @endif >Perempuan</option>
               </select>
           </div>
 
@@ -58,16 +58,7 @@
 
 
 <!-- Modal Bootsrap -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Tambah Data</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+  
 
 
 
