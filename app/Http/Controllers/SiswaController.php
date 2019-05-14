@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Validator;
+
 
 class SiswaController extends Controller
 {
@@ -13,19 +15,25 @@ class SiswaController extends Controller
         return view('siswa.index', ['data_siswa' => $data_siswa]);
     }
     
-    public function create(Request $request){
-
+    public function create (Request $request){
         
-        $this->validate($request,[
-            'nama_depan' => 'required|min:3',
+        
+        $validator = Validator::make($request->all(),
+        [
+            'nama_depan' => 'required|min:4',
+            'nama_belakang' => 'required',
             'jenis_kelamin' => 'required',
             'agama' => 'required',
-            'alamat' => 'required|min:20'
-
-        ]);
-        \App\Siswa::create($request->all());
-        return redirect('/siswa')->with('sukses', 'Data Berhasil Di Input');
-        
+            'alamat' => 'required|min:10|max:30',
+        ]
+    );
+            if($validator->fails()){
+                return redirect()->back()->withInput()->withErrors($validator->errors());
+            }
+            else {
+                \App\Siswa::create($request->all());
+                return redirect('/siswa')->with('sukses','Data Berhasil di input');
+            };       
     }
 
     public function edit($id)
